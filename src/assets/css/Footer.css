@@ -1,0 +1,17 @@
+.footer{
+    position: absolute;
+width: 247px;
+height: 19px;
+left: 100px;
+top: 859px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 19px;
+/* identical to box height */
+
+
+color: #005B96;
+}
