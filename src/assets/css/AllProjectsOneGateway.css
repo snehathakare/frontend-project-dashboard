@@ -1,0 +1,52 @@
+.one-gateway-container{
+position: absolute;
+width: 688px;
+height: 557px;
+left: 100px;
+top: 195px;
+
+background: #F1FAFE;
+border-radius: 10px;
+}
+
+.project-types{
+    position: absolute;
+width: 521px;
+height: 53px;
+left: 819px;
+
+
+background: #F1FAFE;
+border-radius: 10px;
+}
+
+.pie-chart{
+    position: absolute;
+width: 270px;
+height: 269.44px;
+left: 938px;
+top: 342.04px;
+}
+
+.total{
+    position: absolute;
+    width: 521px;
+    height: 53px;
+    left: 819px;
+    top: 699px;
+    
+    background: #F1FAFE;
+    border-radius: 10px;    
+
+}
+
+.project-tab{
+position: absolute;
+width: 654px;
+height: 71px;
+left: 119px;
+top: 266px;
+
+background: #FFFFFF;
+border-radius: 10px;
+}

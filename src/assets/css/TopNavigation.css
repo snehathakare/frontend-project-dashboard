@@ -1,25 +1,17 @@
-.topnav-container {
+.topnav-menu {
+    position: absolute;
+    left: 6.94%;
+    right: 90.91%;
+    top: 3.11%;
+    bottom: 93.89%;
+}
+
+.topnav-logo {
     position: absolute;
     width: 26.67px;
     height: 40px;
     left: 35px;
     top: 21px;
-}
-
-.topnav-items {
-    display: flex;
-}
-
-.topnav-left {
-    display: flex;
-}
-
-.topnav-left>img {
-    margin: 10px;
-}
-
-.topnav-right {
-    display: flex;
 }
 
 .username {

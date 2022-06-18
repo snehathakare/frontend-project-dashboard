@@ -1,0 +1,33 @@
+.reports-heading {
+    position: absolute;
+    width: 115px;
+    height: 28px;
+    left: 663px;
+    top: 306px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+
+    color: #011F4B;
+}
+
+.reports-text {
+    position: absolute;
+    width: 470px;
+    height: 57px;
+    left: 485px;
+    top: 338px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+
+    color: #7E8299;
+}

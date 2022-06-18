@@ -1,0 +1,58 @@
+.table-container {
+    position: absolute;
+    width: 1240px;
+    height: 557px;
+    left: 100px;
+    top: 195px;
+
+    background: #F1FAFE;
+    border-radius: 10px;
+}
+
+.table-heading {
+    position: absolute;
+    width: 186px;
+    height: 19px;
+    left: 124px;
+    top: 213px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+
+    color: #011F4B;
+}
+
+.project-tab {
+    position: absolute;
+    width: 1194px;
+    height: 71px;
+    left: 119px;
+    top: 266px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+}
+
+.row{
+
+position: absolute;
+width: 33px;
+height: 26px;
+left: 140px;
+top: 356px;
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 164.4%;
+/* or 26px */
+
+
+color: #011F4B;
+}
