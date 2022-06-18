@@ -9,6 +9,7 @@ const baseURL1 = "http://178.63.13.157:8090/mock-api/api/gateways"
 export const ProjectProvider = ({ children }) => {
     const [gateways, setGateways] = useState([]);
     const [projects, setProjects] = useState([]);
+    const [reports, setReports] = useState([]);
 
     const getAllProjects = async () => {
         try {
@@ -20,21 +21,27 @@ export const ProjectProvider = ({ children }) => {
         }
     };
 
-
     const getAllGateways = async () => {
         await axios.get(baseURL1).then((response) => {
             setGateways(response.data.data);
-            console.log(response)
         });
     }
 
-    useEffect(() => {
-        getAllProjects()
-        getAllGateways()
-    }, []);
+    const handleDateSelection = async (from, to) => {
+        const selection = {
+            from: from,
+            to: to,
+            // gatewayId: "i6ssp"
+        };
+        axios.post(`http://178.63.13.157:8090/mock-api/api/report`, JSON.stringify(selection), { headers: { 'Content-Type': 'application/json' } })
+            .then(res => {
+                console.log(res.data.data);
+                // setReports(res.data.data)
+            })
+    }
 
     return (
-        <ProjectContext.Provider value={{ projects, gateways, getAllGateways, getAllProjects, setProjects, setGateways }}>
+        <ProjectContext.Provider value={{ reports, projects, gateways, getAllGateways, getAllProjects, setProjects, setGateways, handleDateSelection }}>
             {children}
         </ProjectContext.Provider>
     );
