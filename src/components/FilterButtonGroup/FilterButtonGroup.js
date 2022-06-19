@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import GatewayFilter from './GatewayFilter'
 import ProjectFilter from './ProjectFilter'
 import DateFilter from './DateFilter'
-import GenerateReport from './GenerateReport'
 import './../../assets/css/FilterButtonGroup.css'
+import { ProjectContext } from '../../context/ProjectContext'
 
 const FilterButtonGroup = () => {
-    const [reportIsVisible, setReportIsVisible] = useState(false)
-    const handleGenerateReport = () => { setReportIsVisible(!reportIsVisible) }
+    // const [reportIsVisible, setReportIsVisible] = useState(false)
+    // const handleGenerateReport = () => { setReportIsVisible(!reportIsVisible) }
+    const { handleDateSelection, fromValue, toValue, selectedProject, selectedGateway } = useContext(ProjectContext)
     return (
         <div>
             <p className='filter-heading'>Reports</p>
@@ -16,10 +17,8 @@ const FilterButtonGroup = () => {
                 <ProjectFilter />
                 <GatewayFilter />
                 <DateFilter />
-                <button className="generate-report-button" onClick={handleGenerateReport}>Generate report</button>
-                {reportIsVisible && <GenerateReport />}
+                <button className="generate-report-button" onClick={() => { handleDateSelection("2021-06-01", "2021-06-30", selectedProject, selectedGateway) }}>Generate report</button>
             </div>
-
         </div>
     )
 }
