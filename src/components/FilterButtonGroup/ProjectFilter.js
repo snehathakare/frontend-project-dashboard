@@ -1,14 +1,12 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import './../../assets/css/FilterButtonGroup.css';
 import { ProjectContext } from '../../context/ProjectContext'
 
 export default function ProjectFilter() {
-    const { projects, getAllProjects } = useContext(ProjectContext)
-    const [project, setProject] = useState('');
-    const [isClicked, setIsClicked] = useState(false)
+    const { allProjects, getAllProjects, updateProject, selectedProject } = useContext(ProjectContext)
 
-    const handleProjectSelection = () => {
-        setIsClicked(!isClicked)
+
+    const handleProjectSelection = (e) => {
         getAllProjects()
     };
 
@@ -16,14 +14,14 @@ export default function ProjectFilter() {
         <div className='project-button'>
             <select
                 className='project-dialog'
-                value={project}
-                onChange={(event) => { setProject(event.target.value) }}
+                value={selectedProject}
+                onChange={(e) => { updateProject(e.target.value) }}
                 onClick={handleProjectSelection}
             >
                 <option value="">
                     All Projects
                 </option>
-                {projects && projects.map(project => {
+                {allProjects && allProjects.map(project => {
                     return (
                         <option key={project.projectId} value={project.projectId}>{project.name}</option>
                     )

@@ -7,14 +7,22 @@ const baseURL = "http://178.63.13.157:8090/mock-api/api/projects"
 const baseURL1 = "http://178.63.13.157:8090/mock-api/api/gateways"
 
 export const ProjectProvider = ({ children }) => {
-    const [gateways, setGateways] = useState([]);
-    const [projects, setProjects] = useState([]);
+    const [allGateways, setAllGateways] = useState([]);
+    const [allProjects, setAllProjects] = useState([]);
     const [reports, setReports] = useState([]);
+    const [selectedProject, setSelectedProject] = useState("")
+    const [selectedGateway, setSelectedGateway] = useState("")
+    const [fromValue, setFromValue] = useState(null);
+    const [toValue, setToValue] = useState(null);
+
+    const parseDate = () => {
+
+    }
 
     const getAllProjects = async () => {
         try {
             await axios.get(baseURL).then((response) => {
-                setProjects(response.data.data);
+                setAllProjects(response.data.data);
             })
         } catch (error) {
             console.log(error);
@@ -23,25 +31,39 @@ export const ProjectProvider = ({ children }) => {
 
     const getAllGateways = async () => {
         await axios.get(baseURL1).then((response) => {
-            setGateways(response.data.data);
+            setAllGateways(response.data.data);
         });
     }
 
-    const handleDateSelection = async (from, to) => {
+    const handleDateSelection = async (from, to, selectedProject, selectedGateway) => {
         const selection = {
             from: from,
             to: to,
-            // gatewayId: "i6ssp"
+            projectId: selectedProject,
+            gatewayId: selectedGateway
+
         };
+        console.log('handleDateSelection');
+        console.log(selection)
         axios.post(`http://178.63.13.157:8090/mock-api/api/report`, JSON.stringify(selection), { headers: { 'Content-Type': 'application/json' } })
             .then(res => {
-                console.log(res.data.data);
-                // setReports(res.data.data)
+                setReports(res.data.data)
+                console.log(reports);
             })
     }
 
+    // useEffect(() => {
+    //     // handleDateSelection("2021-06-01", "2021-06-30", selectedProject, selectedGateway)
+    // }, [])
+
     return (
-        <ProjectContext.Provider value={{ reports, projects, gateways, getAllGateways, getAllProjects, setProjects, setGateways, handleDateSelection }}>
+        <ProjectContext.Provider value={{
+            updateProject: project => setSelectedProject(project),
+            updateGateway: gateway => setSelectedGateway(gateway),
+            reports, handleDateSelection, setFromValue, fromValue, setToValue, toValue,
+            allProjects, allGateways, getAllGateways, getAllProjects, setAllProjects,
+            setAllGateways, selectedProject, selectedGateway
+        }}>
             {children}
         </ProjectContext.Provider>
     );

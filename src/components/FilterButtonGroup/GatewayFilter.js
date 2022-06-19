@@ -6,13 +6,9 @@ import './../../assets/css/FilterButtonGroup.css';
 import { ProjectContext } from '../../context/ProjectContext'
 
 export default function GatewayFilter() {
-    const { gateways, getAllGateways } = useContext(ProjectContext)
-    const [gateway, setGateway] = useState('');
-    const [isClicked, setIsClicked] = useState(false)
+    const { allGateways, getAllGateways, selectedGateway, updateGateway } = useContext(ProjectContext)
 
-    const handleGatewaySelection = (event) => {
-        setGateway(event.target.value)
-        setIsClicked(!isClicked)
+    const handleGatewaySelection = () => {
         getAllGateways()
     };
 
@@ -20,14 +16,14 @@ export default function GatewayFilter() {
         <div className='gateway-button'>
             <select
                 className='project-dialog'
-                value={gateway}
-                onChange={(event) => { setGateway(event.target.value) }}
+                value={selectedGateway}
+                onChange={(event) => { updateGateway(event.target.value) }}
                 onClick={handleGatewaySelection}
             >
                 <option value="">
                     All Gateways
                 </option>
-                {gateways && gateways.map(gateway => {
+                {allGateways && allGateways.map(gateway => {
                     return (
                         <option value={gateway.gatewayId}>{gateway.name}</option>
                     )
