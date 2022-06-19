@@ -17,7 +17,7 @@ const FilterButtonGroup = () => {
                 <ProjectFilter />
                 <GatewayFilter />
                 <DateFilter />
-                <button className="generate-report-button" onClick={() => { handleDateSelection("2021-06-01", "2021-06-30", selectedProject, selectedGateway) }}>Generate report</button>
+                <button className="generate-report-button" onClick={() => { handleDateSelection(fromValue, toValue, selectedProject, selectedGateway) }}>Generate report</button>
             </div>
         </div>
     )

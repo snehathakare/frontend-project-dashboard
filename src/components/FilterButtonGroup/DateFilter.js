@@ -7,7 +7,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { ProjectContext } from '../../context/ProjectContext';
 
 const DateFilter = () => {
-    const { handleDateSelection, setFromValue, setToValue, fromValue, toValue } = useContext(ProjectContext)
+    const { setFromValue, setToValue, fromValue, toValue } = useContext(ProjectContext)
 
     return (
         <Fragment>
@@ -16,8 +16,8 @@ const DateFilter = () => {
                     <DatePicker
                         label="From date"
                         value={fromValue}
-                        onChange={(newValue) => {
-                            setFromValue(newValue);
+                        onChange={(fromDate) => {
+                            setFromValue(fromDate.toISOString().slice(0, 10));
                         }}
                         renderInput={(params) => <TextField {...params} />}
                     />
@@ -28,8 +28,8 @@ const DateFilter = () => {
                     <DatePicker
                         label="To date"
                         value={toValue}
-                        onChange={(newValue) => {
-                            setToValue(newValue);
+                        onChange={(toDate) => {
+                            setToValue(toDate.toISOString().slice(0, 10));
                         }}
                         renderInput={(params) => <TextField {...params} />}
                     />

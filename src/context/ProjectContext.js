@@ -15,9 +15,6 @@ export const ProjectProvider = ({ children }) => {
     const [fromValue, setFromValue] = useState(null);
     const [toValue, setToValue] = useState(null);
 
-    const parseDate = () => {
-
-    }
 
     const getAllProjects = async () => {
         try {
@@ -52,9 +49,6 @@ export const ProjectProvider = ({ children }) => {
             })
     }
 
-    // useEffect(() => {
-    //     // handleDateSelection("2021-06-01", "2021-06-30", selectedProject, selectedGateway)
-    // }, [])
 
     return (
         <ProjectContext.Provider value={{
