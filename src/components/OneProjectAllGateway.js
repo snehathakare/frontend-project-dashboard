@@ -18,55 +18,50 @@ const OneProjectAllGateway = (pId) => {
     const [projectHeading, setProjectHeading] = useState('All projects')
     const [gatewayHeading, setGatewayHeading] = useState('All gateways')
 
-    const { projects, getAllGateways, gateways } = useContext(ProjectContext)
+    const { reports, selectedProject, allProjects } = useContext(ProjectContext)
 
-    function createData(date, gateway, id, amount) {
-        return { date, gateway, id, amount };
-    }
+    const filteredReports = reports.filter(project => project.projectId.includes(selectedProject))
+    const filteredProjects = allProjects.filter(project => project.projectId.includes(selectedProject))
 
-    const rows = [
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-    ];
     return (
         <div className='table-container'>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="simple table">
                     <TableHead>
                         <TableRow>
-                            {projects.filter(project => project.projectId.includes("bgYhx")).map(project => {
-                                return (<Accordion>
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMoreIcon />}
-                                        aria-controls="panel1a-content"
-                                        id="panel1a-header"
-                                    >
-                                        <Typography>{project.name}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails>
-                                        <TableRow>
-                                            <TableCell align="right">Date</TableCell>
-                                            <TableCell align="right">Gateway</TableCell>
-                                            <TableCell align="right">Transaction Id</TableCell>
-                                            <TableCell align="right">Amount</TableCell>
-                                        </TableRow>
-                                        <TableBody>
-                                            {rows.map((row) => (
-                                                <TableRow
-                                                    key={row.name}
-                                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                                >
-                                                    <TableCell align="right">{row.date}</TableCell>
-                                                    <TableCell align="right">{row.gateway}</TableCell>
-                                                    <TableCell align="right">{row.id}</TableCell>
-                                                    <TableCell align="right">{row.amount}</TableCell>
-                                                </TableRow>
-                                            ))}
-                                        </TableBody>
-                                    </AccordionDetails>
-                                </Accordion>)
+                            {filteredProjects.map(project => {
+                                return (
+                                    <Accordion>
+                                        <AccordionSummary
+                                            expandIcon={<ExpandMoreIcon />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header"
+                                        >
+                                            <Typography>{project.name}</Typography>
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <TableRow>
+                                                <TableCell align="right">Date</TableCell>
+                                                <TableCell align="right">Gateway</TableCell>
+                                                <TableCell align="right">Transaction Id</TableCell>
+                                                <TableCell align="right">Amount</TableCell>
+                                            </TableRow>
+                                            <TableBody>
+                                                {filteredReports.map((row) => (
+                                                    <TableRow
+                                                        key={row.paymentId}
+                                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                                    >
+                                                        <TableCell align="right">{row.created}</TableCell>
+                                                        <TableCell align="right">{row.paymentId}</TableCell>
+                                                        <TableCell align="right">{row.amount}</TableCell>
+                                                    </TableRow>
+
+                                                ))}
+                                            </TableBody>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                )
                             })}
                         </TableRow>
                     </TableHead>
