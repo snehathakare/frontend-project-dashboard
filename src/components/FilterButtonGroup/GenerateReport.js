@@ -6,10 +6,10 @@ const GenerateReport = () => {
     return (
         <div>
             <span className='reports-heading'>No Reports</span>
-            <p className='reports-text'>Currently you have no data for the reports to be generated.
+            <span className='reports-text'>Currently you have no data for the reports to be generated.
                 Once you start generating traffic through the Balance application
-                the reports will be shown.</p>
-            <img src={NoReport} alt="no reports" />
+                the reports will be shown.</span>
+            <img src={NoReport} className="img-report" alt="no reports" />
         </div>
     )
 }

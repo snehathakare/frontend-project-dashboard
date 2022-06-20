@@ -1,18 +1,19 @@
 .reports-heading {
     position: absolute;
-    width: 115px;
+    width: auto;
     height: 28px;
     left: 663px;
     top: 306px;
-
-    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
     font-size: 24px;
     line-height: 28px;
     text-align: center;
-
     color: #011F4B;
+
+    letter-spacing: 0em;
+
+
 }
 
 .reports-text {
@@ -22,7 +23,7 @@
     left: 485px;
     top: 338px;
 
-    font-family: 'Roboto';
+
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -30,4 +31,13 @@
     text-align: center;
 
     color: #7E8299;
+}
+
+.img-report {
+    position: absolute;
+    width: 402.5px;
+    height: 171.71px;
+    left: 500.5px;
+    top: 446px;
+
 }
