@@ -40,15 +40,16 @@ export const ProjectProvider = ({ children }) => {
             gatewayId: selectedGateway
 
         };
-        console.log('handleDateSelection');
-        console.log(selection)
         axios.post(`http://178.63.13.157:8090/mock-api/api/report`, JSON.stringify(selection), { headers: { 'Content-Type': 'application/json' } })
             .then(res => {
                 setReports(res.data.data)
-                console.log(reports);
             })
     }
 
+    useEffect(() => {
+        getAllProjects()
+        getAllGateways()
+    }, [])
 
     return (
         <ProjectContext.Provider value={{

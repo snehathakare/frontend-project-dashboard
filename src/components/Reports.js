@@ -14,7 +14,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const AllProjects = () => {
+const Reports = () => {
     const [projectHeading, setProjectHeading] = useState('All projects')
     const [gatewayHeading, setGatewayHeading] = useState('All gateways')
 
@@ -26,31 +26,23 @@ const AllProjects = () => {
 }
 
 export function ProjectsTable() {
-    const { projects, getAllGateways, gateways } = useContext(ProjectContext)
+    const { reports, projects, getAllGateways, gateways } = useContext(ProjectContext)
 
-    function createData(date, gateway, id, amount) {
-        return { date, gateway, id, amount };
-    }
+    const filteredReports = reports.filter(project => project.projectId.includes("bgYhx"))
 
-    const rows = [
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-        createData('15 / 9 / 2021', 2, 24, 4.0),
-    ];
     return (
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        {projects && projects.map(project => {
+                        {filteredReports.map(project => {
                             return (<Accordion>
                                 <AccordionSummary
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls="panel1a-content"
                                     id="panel1a-header"
                                 >
-                                    <Typography>{project.name}</Typography>
+                                    <Typography>{project.amount}</Typography>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <TableRow>
@@ -60,17 +52,18 @@ export function ProjectsTable() {
                                         <TableCell align="right">Amount</TableCell>
                                     </TableRow>
                                     <TableBody>
-                                        {rows.map((row) => (
-                                            <TableRow
-                                                key={row.name}
-                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                            >
-                                                <TableCell align="right">{row.date}</TableCell>
-                                                <TableCell align="right">{row.gateway}</TableCell>
-                                                <TableCell align="right">{row.id}</TableCell>
-                                                <TableCell align="right">{row.amount}</TableCell>
-                                            </TableRow>
-                                        ))}
+
+                                        < TableRow
+                                            key={project.paymentId}
+                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                        >
+                                            <TableCell align="right">{project.created}</TableCell>
+                                            <TableCell align="right">{project.projectId}</TableCell>
+                                            <TableCell align="right">{project.paymentId}</TableCell>
+                                            <TableCell align="right">{project.amount}</TableCell>
+                                        </TableRow>
+
+
                                     </TableBody>
                                 </AccordionDetails>
                             </Accordion>)
@@ -78,8 +71,8 @@ export function ProjectsTable() {
                     </TableRow>
                 </TableHead>
             </Table>
-        </TableContainer>
+        </TableContainer >
     );
 }
 
-export default AllProjects
+export default Reports
