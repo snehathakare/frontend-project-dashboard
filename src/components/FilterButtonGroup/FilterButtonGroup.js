@@ -6,14 +6,15 @@ import './../../assets/css/FilterButtonGroup.css'
 import { ProjectContext } from '../../context/ProjectContext'
 
 const FilterButtonGroup = () => {
-    // const [reportIsVisible, setReportIsVisible] = useState(false)
-    // const handleGenerateReport = () => { setReportIsVisible(!reportIsVisible) }
     const { handleDateSelection, fromValue, toValue, selectedProject, selectedGateway } = useContext(ProjectContext)
     return (
-        <div>
-            <p className='filter-heading'>Reports</p>
-            <p className='filter-sub-heading'>Easily generate a report of your transactions</p>
+        <div className='filter-container'>
             <div>
+                <span className='filter-heading'>Reports</span>
+                <span className='filter-sub-heading'>Easily generate a report of your transactions</span>
+            </div>
+
+            <div className='filter-button-group'>
                 <ProjectFilter />
                 <GatewayFilter />
                 <DateFilter />

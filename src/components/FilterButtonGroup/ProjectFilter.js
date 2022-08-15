@@ -18,6 +18,7 @@ export default function ProjectFilter() {
                 onChange={(e) => { updateProject(e.target.value) }}
                 onClick={handleProjectSelection}
             >
+
                 <option value="">
                     All Projects
                 </option>
@@ -26,6 +27,7 @@ export default function ProjectFilter() {
                         <option key={project.projectId} value={project.projectId}>{project.name}</option>
                     )
                 })}
+
             </select>
         </div>
     );
