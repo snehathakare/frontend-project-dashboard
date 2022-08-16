@@ -4,7 +4,7 @@ import NoReport from './../../assets/images/no-reports.svg'
 
 const GenerateReport = () => {
     return (
-        <div>
+        <div className='no-report-section'>
             <span className='reports-heading'>No Reports</span>
             <span className='reports-text'>Currently you have no data for the reports to be generated.
                 Once you start generating traffic through the Balance application

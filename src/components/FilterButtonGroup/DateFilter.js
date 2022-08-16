@@ -10,13 +10,15 @@ const DateFilter = () => {
     return (
         <div className='flex'>
             <DatePicker
+                // wrapperClassName='filter-button'
                 placeholderText='from'
                 selected={fromValue}
                 onChange={(fromDate) => {
                     setFromValue(fromDate);
                 }}
             />
-            <DatePicker wrapperClassName='to-date-button'
+            <DatePicker
+                // wrapperClassName='filter-button'
                 placeholderText='to'
                 selected={toValue}
                 onChange={(toDate) => {

@@ -13,7 +13,7 @@ const TopNavigation = () => {
             <div className='topnav-right'>
                 <div className='bg_user' />
                 <div className='user_initial'><span>JD</span></div>
-                <div className="username">username</div>
+                <div className="username">John Doe</div>
             </div>
         </div>
     )

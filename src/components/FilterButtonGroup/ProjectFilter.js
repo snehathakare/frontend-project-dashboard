@@ -13,7 +13,7 @@ export default function ProjectFilter() {
     return (
         <div className='project-button'>
             <select
-                className='project-dialog'
+                className='filter-button'
                 value={selectedProject}
                 onChange={(e) => { updateProject(e.target.value) }}
                 onClick={handleProjectSelection}

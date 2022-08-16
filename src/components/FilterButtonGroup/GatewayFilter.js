@@ -15,7 +15,7 @@ export default function GatewayFilter() {
     return (
         <div className='gateway-button'>
             <select
-                className='project-dialog'
+                className='filter-button'
                 value={selectedGateway}
                 onChange={(event) => { updateGateway(event.target.value) }}
                 onClick={handleGatewaySelection}
@@ -25,7 +25,7 @@ export default function GatewayFilter() {
                 </option>
                 {allGateways && allGateways.map(gateway => {
                     return (
-                        <option value={gateway.gatewayId}>{gateway.name}</option>
+                        <option key={gateway.gatewayId} value={gateway.gatewayId}>{gateway.name}</option>
                     )
                 })}
 

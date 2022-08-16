@@ -9,8 +9,8 @@ const FilterButtonGroup = () => {
     const { handleDateSelection, fromValue, toValue, selectedProject, selectedGateway } = useContext(ProjectContext)
     return (
         <div className='filter-container'>
-            <div>
-                <span className='filter-heading'>Reports</span>
+            <div className='report-text'>
+                <h3 className='filter-heading'>Reports</h3>
                 <span className='filter-sub-heading'>Easily generate a report of your transactions</span>
             </div>
 
