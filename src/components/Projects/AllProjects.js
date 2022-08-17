@@ -26,55 +26,25 @@ const AllProjects = () => {
 }
 
 export function ProjectsTable() {
-    const { allProjects, reports, gateways } = useContext(ProjectContext)
-    const filteredReports = reports.filter(project => project.projectId.includes(project.projectId))
+    const { allProjects, reports, allGateways } = useContext(ProjectContext)
+    const filteredReports = allProjects.filter(project => project.projectId.includes(project.projectId))
     const filteredProjects = filteredReports.filter(project => project.projectId.includes(project.projectId))
-
+    console.log(reports)
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                <TableHead>
-                    <TableRow>
-                        {/* {filteredReports && filteredReports.map(project => { */}
-                        {/* return ( */}
-                        <Accordion>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                {/* <Typography>{project.name}</Typography> */}
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <TableRow>
-                                    <TableCell align="right">Date</TableCell>
-                                    <TableCell align="right">Gateway</TableCell>
-                                    <TableCell align="right">Transaction Id</TableCell>
-                                    <TableCell align="right">Amount</TableCell>
-                                </TableRow>
-                                <TableBody>
-                                    {filteredReports.map((project) => (
-                                        <TableRow
-                                            key={project.paymentId}
-                                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                        >
-                                            <TableCell align="right">{project.created}</TableCell>
-                                            <TableCell align="right">{project.gatewayId}</TableCell>
-                                            <TableCell align="right">{project.paymentId}</TableCell>
-                                            <TableCell align="right">{project.amount}</TableCell>
-                                            <TableCell align="right">{project.name}</TableCell>
-                                        </TableRow>
+        <table>
+            {filteredReports && filteredReports.map(project => {
+                return (
+                    <tr>
+                        <th>{project.name}</th>
+                        <td align="center">{project.created}</td>
+                        {/* <td align="center">{project.gatewayId}</td> */}
+                        <td align="center">{project.paymentId}</td>
+                        <td align="center">{project.amount}</td>
+                    </tr>
+                )
+            })}
 
-                                    ))}
-                                </TableBody>
-                            </AccordionDetails>
-                        </Accordion>
-                        {/* ) */}
-                        {/* })} */}
-                    </TableRow>
-                </TableHead>
-            </Table>
-        </TableContainer >
+        </table>
     );
 }
 

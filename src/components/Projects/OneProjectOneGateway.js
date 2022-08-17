@@ -24,31 +24,27 @@ const FilterData = () => {
     const filteredData = filteredReports.filter(project => project.projectId.includes(selectedProject))
 
     return (
-        <div>
-            <table>
-                <tr>
-                    <th align="right">Date</th>
-                    {/* <TableCell align="right">Gateway</TableCell> */}
-                    <th align="right">Transaction Id</th>
-                    <th align="right">Amount</th>
-                </tr>
-                {filteredData.map(project => {
-                    return (
-                        <tr
-                            key={project.paymentId}
-                            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                        >
-                            <td align="right">{project.created}</td>
-                            {/* <td align="right">{project.gatewayId}</td> */}
-                            <td align="right">{project.paymentId}</td>
-                            <td align="right">{project.amount}</td>
-                        </tr>
-                    )
-                })}
-            </table>
-
-
-        </div >
+        <table>
+            <tr>
+                <th align="center">Date</th>
+                {/* <TableCell align="center">Gateway</TableCell> */}
+                <th align="center">Transaction Id</th>
+                <th align="center">Amount</th>
+            </tr>
+            {filteredData.map(project => {
+                return (
+                    <tr
+                        key={project.paymentId}
+                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                        <td align="center">{project.created}</td>
+                        {/* <td align="center">{project.gatewayId}</td> */}
+                        <td align="center">{project.paymentId}</td>
+                        <td align="center">{project.amount}</td>
+                    </tr>
+                )
+            })}
+        </table>
     );
 }
 

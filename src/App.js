@@ -24,8 +24,8 @@ function App() {
         <FilterButtonGroup />
       </div>
 
-      {/* {fromValue && toValue ? <AllProjects /> :
-        <GenerateReport />} */}
+      {fromValue && toValue ? <AllProjects /> :
+        <GenerateReport />}
 
       {/* {fromValue && toValue && selectedProject ? <OneProjectAllGateway /> :
         <GenerateReport />}

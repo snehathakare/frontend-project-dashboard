@@ -10,8 +10,8 @@ export const ProjectProvider = ({ children }) => {
     const [allGateways, setAllGateways] = useState([]);
     const [allProjects, setAllProjects] = useState([]);
     const [reports, setReports] = useState([]);
-    const [selectedProject, setSelectedProject] = useState("")
-    const [selectedGateway, setSelectedGateway] = useState("")
+    const [selectedProject, setSelectedProject] = useState('')
+    const [selectedGateway, setSelectedGateway] = useState('')
     const [fromValue, setFromValue] = useState(null);
     const [toValue, setToValue] = useState(null);
 
